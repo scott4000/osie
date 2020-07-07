@@ -167,7 +167,7 @@ def get_smart_diskprop(device, prop):
     if prop not in regex:
         return ""
 
-    smart_data = cmd_output("smartctl", "-d", get_smart_devices()[device], "-i", device)
+    smart_data = cmd_output("smartctl", "-i", device)
 
     return __re_multiline_first(smart_data, regex[prop]).strip()
 
